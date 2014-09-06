@@ -92,7 +92,11 @@ func (dr *DateRange) Scan(src interface{}) (err error) {
 }
 
 func (dr *DateRange) Value() (driver.Value, error) {
-	return fmt.Sprint(dr), nil
+	if dr != nil {
+		return fmt.Sprint(dr), nil
+	} else {
+		return nil, nil
+	}
 }
 
 func (dr DateRange) String() string {
